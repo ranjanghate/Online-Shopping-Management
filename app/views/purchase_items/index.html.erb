@@ -1,0 +1,33 @@
+<%= render partial: "shared/alert" %>
+
+<div class="title-container">
+  <h1> Purchased items </h1>
+</div>
+<div class="deliverydetails">
+  <% if @address.nil? %>
+    <%= "Delivered to: Address not available" %>
+  <% else %>
+    <%= "Delivered to: #{@address.street}, #{@address.city}, #{@address.country}, #{@address.code}" %>
+  <% end %>
+</div>
+<div class="deliverydetails">
+  <%= "Order Placed on: #{@purchase.created_at}" %>
+</div>
+<div class="deliverydetails">
+  <%= "Total Price: #{@purchase.total_price}" %>
+</div>
+<div class="adddisplay">
+  <% @purchased_courses.each do |price, course| %>
+    <div class="addressblock">
+      <div class="addresshead">
+        Course:
+      </div>
+      <div class="addressstyle">
+        <%= "Name: #{course.name}, Price: #{price}" %>
+      </div>
+      <div class="addressbtn">
+        <%= link_to "View Item", course_path(course.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

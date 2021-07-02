@@ -1,0 +1,17 @@
+<%= render partial: "shared/alert" %>
+<%= form_with model: @address, url: user_address_path(user_id: Current.user.id, id: @address.id), method: :patch do |address| %>
+  <%= render partial: "shared/error_messages", locals: { object: @address } %>
+  <div class="form-section">
+    <%= address.label("Street") %>
+    <%= address.text_area :street %>
+    <%= address.label("City") %>
+    <%= address.text_field :city %>
+    <%= address.label("State") %>
+    <%= address.text_field :state %>
+    <%= address.label("Country") %>
+    <%= address.text_field :country %>
+    <%= address.label("Postal Code") %>
+    <%= address.number_field :code %>
+    <%= address.submit "Update", class: "btn btn-primary" %>
+  </div>
+<% end %>

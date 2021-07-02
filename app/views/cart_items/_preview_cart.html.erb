@@ -1,0 +1,5 @@
+<% @courses.each do |course| %>
+  <div class="profile-usertitle-name">
+    <%= "Item: #{course.name}, Price: #{course.price.to_f}" %>
+  </div>
+<% end %>

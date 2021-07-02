@@ -1,0 +1,4 @@
+$('.primary').bind('ajax:success', function(){
+  $("#prime").load(location.href + " #prime");
+});
+$("#flash").html('<%= j render partial: "shared/alert" %>');

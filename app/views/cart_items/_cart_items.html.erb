@@ -1,0 +1,14 @@
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= "Cart" %>
+    <%= link_to "Purchase Cart", bill_user_purchases_path(Current.user), class: "button-address" %>
+  </div>
+  <div class="addressbar">
+    <%= render partial: "cart_items/preview_cart" %>
+  </div>
+</div>
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= link_to "Show all Cart Items", user_cart_items_path(Current.user) %>
+  </div>
+</div>

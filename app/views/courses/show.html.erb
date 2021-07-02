@@ -1,0 +1,42 @@
+<%= render partial: "shared/alert" %>
+<div class="course-page">
+  <div class="course-show">
+    <div class="sub-title">
+      <%= @course.name %>
+    </div>
+    
+    <div class="text">
+      <%= @course.description %></p>
+    </div>
+    <h2 class="h1 font-weight-bold">
+      <%= @course.price %> &#8377;
+      <span class="text-small font-weight-normal ml-2">/ month</span>
+    </h2>
+    <% if !added_to_cart?(params[:id].to_i) %>
+      <%= link_to "Add to Cart", course_cart_items_path(@course), method: :post, class: "btn-subscribe btn-secondary btn-block p-2 rounded-pill" %>
+    <% else %>
+      <div class="btn-subcribe btn-secondary btn-block p-2 rounded-pill">
+        <%= "Already in Cart" %>
+      </div>
+    <% end %>
+    <div class="coursebtn">
+      <%= link_to "Edit", edit_course_path, class: "btn btn-primary" %>
+      <%= link_to "Delete", course_path, method: :delete, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="course-material">
+    <div class="sub-title">
+      <%= "#{@course.name} materials" %>
+    </div>
+    <ul>
+      <% @course.contents.each do |content| %>
+        <li>
+          <% if content.representable? && content.content_type != "application/pdf" %>
+            <%= image_tag content, width: '400px'%>
+          <% else %>
+            <%= link_to content.filename.to_s, rails_blob_path(content, disposition: "attachment") %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+</div>

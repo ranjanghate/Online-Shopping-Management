@@ -1,0 +1,14 @@
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= "Addresses" %>
+    <%= link_to "Add Address", new_user_address_path(Current.user), class: "button-address" %>
+  </div>
+  <div class="addressbar">
+    <%= render partial: "addresses/preview_addresses" %>
+  </div>
+</div>
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= link_to "Show all addresses", user_addresses_path(Current.user) %>
+  </div>
+</div>

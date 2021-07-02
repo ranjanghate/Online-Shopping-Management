@@ -1,0 +1,24 @@
+<div class="profile-userpic">
+  <%= image_tag Current.user.profile_pic if Current.user.profile_pic.representable? %>
+</div>
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= "First Name: #{Current.user.first_name}" %>
+  </div>
+  <div class="profile-usertitle-name">
+    <%= "Last Name: #{Current.user.last_name}" %>
+  </div>
+  <div class="profile-usertitle-name">
+    <%= "Age: #{Current.user.age}" %>
+  </div>
+  <div class="profile-usertitle-name">
+    <%= "School: #{Current.user.school}" %>
+  </div>
+  <div class="profile-usertitle-name">
+    <%= "Email: #{Current.user.email}" %>
+  </div>
+</div>
+<div class="profile-userbuttons">
+  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
+  <%= link_to "Delete Profile", user_registration_path, method: :delete, class: "btn btn-primary" %>
+</div>

@@ -1,0 +1,43 @@
+<div id="flash">
+  <% if notice.present? %>
+    <%= render partial: "shared/notice_banner" %>
+  <% end %>
+</div>
+
+<div class="title-container">
+  <h1> Addresses </h1>
+  <%= link_to "Add a new Address", new_user_address_path(Current.user), class: "button" %>
+</div>
+
+<div class="adddisplay">
+  <div class="addressblock">
+    <div class="addresshead">
+      Primary address:
+    </div>
+    <div class="addressstyle" id="prime">
+      <%= "#{Current.address.street}, #{Current.address.country}, #{Current.address.code}" if !Current.address.nil? %>
+    </div>
+  </div>
+  <table>
+  <tbody>
+  <% @addresses.each do |address| %>
+      
+      <tr>
+        <td class="addressblock"> 
+          <div class="addresshead">
+            Address:
+          </div>
+          <div class="addresstyle">
+          <%= "#{address.street}, #{address.city}, #{address.state}, #{address.country}, #{address.code}" %>
+          </div>
+        </td>
+        <td class="btn btn-success"> <%= link_to "Edit Address", edit_user_address_path(user_id: Current.user.id, id: address.id) %> </td> 
+        <td class="btn btn-success"> <%= link_to "Delete Address", user_address_path(user_id: Current.user.id, id: address.id),
+                                                          method: :delete, remote: true, class: "delete" %> </td> 
+        <td class="btn btn-success"> <%= link_to "Set as Primary Address", set_primary_address_user_address_path(user_id: Current.user.id, id: address.id),
+                                                          method: :post, remote: true, class: "primary" %> </td> 
+      </tr>
+  <% end %>
+  </tbody>
+  </table>
+</div>

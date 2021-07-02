@@ -1,0 +1,4 @@
+$('.remove').bind('ajax:success', function(){
+  $(this).closest('tr').fadeOut();
+});
+$("#flash").html('<%= j render partial: "shared/alert" %>');

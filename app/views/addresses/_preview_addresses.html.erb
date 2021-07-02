@@ -1,0 +1,8 @@
+<% @addresses.each do |address| %>
+  <div class="profile-usertitle-name">
+    <%= "Address: #{address.street}, #{address.city}, #{address.code}" %>
+  </div>
+<% end %>
+<div class="addressstyleprimary">
+  <%= "Primary Address: #{Current.address.street}, #{Current.address.country}, #{Current.address.code}" if !Current.address.nil? %>
+</div>

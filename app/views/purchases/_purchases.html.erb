@@ -1,0 +1,13 @@
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= "Purchase History" %>
+  </div>
+  <div class="addressbar">
+    <%= render partial: "purchases/purchase_list" %>
+  </div>
+</div>
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    <%= link_to "Show all Purchase History", user_purchases_path(Current.user) %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<%= render partial: "shared/alert" %>
+<div class="title-container">
+  <h1> Available Courses </h1>
+  <%= link_to "Add Course", new_course_path, class: "button" %>
+</div>
+<div class="courses">
+  <% @courses.each do |course| %>
+    <div class="course">
+      <h3> <%= course.name %> </h3>
+      <p> <%= course.description %> </p>
+      <p> <%= "Price #{course.price.to_f}" %> </p>
+      <p> <%= link_to "Show Course", course_path(course.id) %>
+    </div>
+  <% end %>
+</div>

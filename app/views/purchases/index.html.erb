@@ -1,0 +1,21 @@
+<%= render partial: "shared/alert" %>
+
+<div class="title-container">
+  <h1> Purchases </h1>
+</div>
+
+<div class="adddisplay">
+  <% @purchases.each_with_index do |purchase, index| %>
+    <div class="addressblock">
+      <div class="addresshead">
+        <%= "Purchase # #{index + 1}" %>
+      </div>
+      <div class="addressstyle">
+        <%= "Total Price: #{purchase.total_price}" %>
+      </div>
+      <div class="addressstyle">
+        <%= link_to "View purchased items", user_purchase_purchase_items_path(user_id: Current.user.id, purchase_id: purchase.id) %>
+      </div>
+    </div>
+  <% end %>
+</div>

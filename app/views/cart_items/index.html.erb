@@ -1,0 +1,31 @@
+<div id="flash">
+  <% if notice.present? %>
+    <%= render partial: "shared/notice_banner" %>
+  <% end %>
+</div>
+
+<div class="title-container">
+  <h1> Cart items </h1>
+  <%= link_to "Purchase cart", bill_user_purchases_path(Current.user), class: "button" %>
+</div>
+<table>
+  <tbody>
+    <% @course_cart_items.each do |course, cart_item_id| %>
+      <tr>
+        <td>
+          <div class="coursedisplay">
+            <div class="addresshead">
+              Course: 
+            </div>
+            <div class="addressstyle">
+              <%= "Name: #{course.name}, Price: #{course.price}" %> 
+            </div>
+          </div>
+        </td>
+        <td class="btn btn-success"> <%= link_to "View Item", course_path(course.id) %> </td>
+        <td class="btn btn-success"> <%= link_to "Remove Item", user_cart_item_path(user_id: Current.user.id, id: cart_item_id),
+                                                            method: :delete, remote: true, class: "remove" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

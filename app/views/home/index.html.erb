@@ -1,0 +1,19 @@
+<%= render partial: "shared/alert" %>
+<div class="homecontents">
+  <div class="home-item">
+    <div class="home-image">
+      <%= image_tag ("home/home.png") %>
+    </div>
+  </div>
+  <div class="home-item">
+    <div class="home-text">
+      Start Learning With eLearning
+    </div>
+    <div class="home-text-sub">
+      Get unlimited access to structured courses designed by experts
+    </div>
+    <div class="home-button">
+      <%= link_to "Get Started", courses_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="bill">
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      <%= "Bill Preview" %>
+      <%= link_to "Purchase Cart", user_purchases_path(Current.user), method: :post, class: "button-address" %>
+    </div>
+    <div class="addressbar">
+      <%= "Total Price : #{@total_price}" %>
+      <%= "Total Item : #{@total_items.to_i}" %>
+    </div>
+    <div class="addressbar">
+      <%= "Delivery address: #{@address.street}, #{@address.city}, #{@address.country}, #{@address.code}" %>
+    </div>
+  </div>
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      <%= link_to "Change delivery address", user_addresses_path(Current.user) %>
+    </div>
+    <div class="profile-usertitle-name">
+      <%= link_to "Check all Cart Items", user_cart_items_path(Current.user) %>
+    </div>
+  </div>
+</div>

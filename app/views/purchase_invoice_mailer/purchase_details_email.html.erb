@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> <%= @user.first_name %>,Your purchase details</h1>
+    <p>
+      Total items purchased: <%= @total_items %>.<br>
+    </p>
+    <p>
+      Total price: <%= @total_price %>.<br>
+    </p>
+    <p>
+      Delivering to: <%= "#{@address.street}, #{@address.city}, #{@address.state}, #{@address.country}, #{@address.code}" %>
+    <h2>Items Purchased </h2>
+    </p>
+        <% @courses.each do |course| %>
+          <li> <%="Course Name: #{course.name}, " %> <%= "Course Price: #{course.price}" %></li> 
+        <% end %>
+      </ul>
+    <p>Thank you for being an elearning customer. We sincerely appreciate your business and hope you come back soon!</p>
+  </body>
+</html>
